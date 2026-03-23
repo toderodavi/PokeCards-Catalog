@@ -1,5 +1,5 @@
-import { tcgdex } from '../api'
-import { showSetCards } from './showSetCards'
+import { tcgdex } from '../api.js'
+import { setCards } from './setCards.js'
 
 export async function setSection(requiredSet) {
   const allSets = await tcgdex.fetch('sets')
@@ -8,14 +8,14 @@ export async function setSection(requiredSet) {
 
   return `
   <section>
-    <div>
-      <img src="${setBrief.logo}.webp" width="400px"  alt="${setBrief.name} Logo"/>
-      <p>${setBrief.name}</p>
-      <p>Card count: ${setBrief.cardCount.official}</p>
-      <p>Release: ${set.releaseDate}</p>
+    <div class="set-info-div">
+      <img src="${setBrief.logo}.webp" width="300px"  alt="${setBrief.name} Logo"/>
+      <h1>${setBrief.name}</h1>
+      <h2>Card count: <span>${setBrief.cardCount.official}</span></h2>
+      <h2>Release: <span>${set.releaseDate}<span/></h2>
     </div>
-    <div>
-      ${await showSetCards(set)}
+    <div class="cards-wrapper-div">
+      ${await setCards(set)}
     </div>
   </section>
   `

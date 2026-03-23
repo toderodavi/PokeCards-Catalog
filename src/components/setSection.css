@@ -1,0 +1,24 @@
+.set-info-div {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.cards-wrapper-div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 0rem 2rem;
+}
+
+.cards-wrapper-div > img {
+  padding: 1rem;
+}
+
+.cards-wrapper-div > img:hover {
+  background-color: black;
+}
