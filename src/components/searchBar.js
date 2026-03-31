@@ -7,10 +7,14 @@ export function searchBar() {
 
   searchBarInput.addEventListener('input', (e) => {
     setTimeout(async () => {
-      const cardsBrief = await tcgdex.card.list(new Query().like('name', e.target.value).sort('order', 'ASC'))
-      const setsBrief = await tcgdex.fetch('sets')
+      if (e.target.value) {
+        const cardsBrief = await tcgdex.card.list(new Query().like('name', e.target.value).sort('order', 'ASC'))
+        const setsBrief = await tcgdex.fetch('sets')
 
-      searchBarResults(cardsBrief, setsBrief)
+        searchBarResults(cardsBrief, setsBrief)
+      } else {
+        searchBarResults([], [])
+      }
     }, 250)
   })
 }

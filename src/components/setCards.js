@@ -1,3 +1,5 @@
+import { cardModal } from './cardModal'
+
 export function setCards(set) {
   let html = ``
 
@@ -6,12 +8,7 @@ export function setCards(set) {
     <button id="${card.id}Btn" commandFor="${card.id}Modal" command="show-modal">
       <img src="${card.image}/low.webp" alt="${card.name}" width="245px" class="card-image"/>
     </button>
-    <dialog id="${card.id}Modal" class="card-modal.hidden" popover>
-      <div class="card-modal-wrapper">
-        <img src="${card.image}/high.webp" loading="lazy" alt="${card.name}"/>
-        <p>${card.name}</p>
-      </div>
-    </dialog>
+    ${cardModal(card)}
     `
   })
   return html
