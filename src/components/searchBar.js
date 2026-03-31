@@ -11,6 +11,6 @@ export function searchBar() {
       const setsBrief = await tcgdex.fetch('sets')
 
       searchBarResults(cardsBrief, setsBrief)
-    }, 500)
+    }, 250)
   })
 }

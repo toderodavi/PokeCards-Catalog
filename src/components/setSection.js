@@ -15,7 +15,7 @@ export async function setSection(requiredSet) {
       <h2>Release: <span>${set.releaseDate}<span/></h2>
     </div>
     <div class="cards-wrapper-div">
-      ${await setCards(set)}
+      ${setCards(set)}
     </div>
   </section>
   `

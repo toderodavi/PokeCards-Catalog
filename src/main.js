@@ -12,11 +12,9 @@ document.querySelector('#app').innerHTML = `
 <main>
   <div id="searchBarWrapper">
       <input type="text" name="searchBar" id="searchBar"/>
-      <div id="searchBarResults">
-      </div>
+      <div id="searchBarResults" />
   </div>
   ${await setSection('Ascended Heroes')}
 </main>
 `
-
 searchBar()
