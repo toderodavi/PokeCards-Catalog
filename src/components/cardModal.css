@@ -1,0 +1,13 @@
+.card-modal.hidden {
+  display: none;
+}
+
+.card-modal-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-modal::backdrop {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}

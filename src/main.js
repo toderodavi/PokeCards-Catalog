@@ -1,5 +1,6 @@
 // import './style.css'
 import './components/setCards.css'
+import './components/cardModal.css'
 import './components/setSection.css'
 import './components/searchBarResults.css'
 import javascriptLogo from './assets/javascript.svg'
