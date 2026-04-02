@@ -1,13 +1,23 @@
 export function cardModal(card) {
-  let html = ``
+  const modalDiv = document.createElement('div')
+  modalDiv.className = 'card-modal'
 
-  html += `
-    <dialog id="${card.id}Modal" class="card-modal.hidden" popover>
-      <div class="card-modal-wrapper">
-        <img src="${card.image}/high.webp" loading="lazy" alt="${card.name}"/>
-        <p>${card.name}</p>
-      </div>
-    </dialog>`
+  const cardImage = document.createElement('img')
+  cardImage.src = `${card.image}/high.webp`
+  cardImage.alt = `${card.name}`
+  cardImage.loading = 'lazy'
 
-  return html
+  const cardNameP = document.createElement('p')
+  cardNameP.innerText = card.name
+
+  const closeButton = document.createElement('button')
+  closeButton.addEventListener('click', () => {
+    modalDiv.remove()
+  })
+
+  modalDiv.append(cardImage)
+  modalDiv.append(cardNameP)
+  modalDiv.append(closeButton)
+
+  return modalDiv
 }

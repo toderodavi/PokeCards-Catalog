@@ -6,17 +6,32 @@ export async function setSection(requiredSet) {
   const setBrief = allSets.find((set) => set.name === requiredSet)
   const set = await tcgdex.fetch('sets', setBrief.id)
 
-  return `
-  <section>
-    <div class="set-info-div">
-      <img src="${setBrief.logo}.webp" width="300px"  alt="${setBrief.name} Logo"/>
-      <h1>${setBrief.name}</h1>
-      <h2>Card count: <span>${setBrief.cardCount.official}</span></h2>
-      <h2>Release: <span>${set.releaseDate}<span/></h2>
-    </div>
-    <div class="cards-wrapper-div">
-      ${setCards(set)}
-    </div>
-  </section>
-  `
+  const setSection = document.getElementById('setSection')
+
+  // Elements for the set information
+  const setInfoDiv = document.createElement('div')
+  setInfoDiv.className = 'set-info-div'
+  const setInfoImg = document.createElement('img')
+  setInfoImg.src = `${setBrief.logo}.webp`
+  setInfoImg.alt = `${setBrief.name} Logo`
+  setInfoImg.width = 300
+  const setInfoName = document.createElement('h1')
+  setInfoName.innerText = `${setBrief.name}`
+  const setInfoCardCount = document.createElement('h2')
+  setInfoCardCount.innerText = `Card count: ${setBrief.cardCount.official}`
+  const setInfoReleaseDate = document.createElement('h2')
+  setInfoReleaseDate.innerText = `Release: ${set.releaseDate}`
+
+  setInfoDiv.append(setInfoImg)
+  setInfoDiv.append(setInfoName)
+  setInfoDiv.append(setInfoCardCount)
+  setInfoDiv.append(setInfoReleaseDate)
+
+  setSection.append(setInfoDiv)
+
+  const setCardsWrapperDiv = document.createElement('div')
+
+  setCards(set, setCardsWrapperDiv)
+
+  setSection.append(setCardsWrapperDiv)
 }

@@ -15,7 +15,9 @@ document.querySelector('#app').innerHTML = `
       <input type="text" name="searchBar" id="searchBar"/>
       <div id="searchBarResults" />
   </div>
-  ${await setSection('Ascended Heroes')}
+  <section id="setSection">
+  </section>
 </main>
 `
 searchBar()
+setSection('Perfect Order')
